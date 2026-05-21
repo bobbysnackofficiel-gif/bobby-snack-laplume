@@ -29,9 +29,13 @@
     }
     .nav-brand { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: #fff; letter-spacing: 0.08em; text-decoration: none; }
     .nav-brand span { color: #fff; }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
     .nav-links a { text-decoration: none; color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 600; transition: color 0.2s; }
     .nav-links a:hover { color: #fff; }
+    
+    /* Conteneur pour les boutons de droite dans la nav */
+    .nav-buttons { display: flex; align-items: center; gap: 10px; }
+    
     .nav-phone {
       background: var(--red); color: #fff; border: none;
       padding: 9px 18px; border-radius: 6px;
@@ -40,10 +44,20 @@
       text-decoration: none; display: inline-block;
     }
     .nav-phone:hover { background: #a93226; }
+    
+    /* Style unique pour le bouton Facebook de la barre du haut */
+    .nav-facebook {
+      background: #1877F2; color: #fff;
+      padding: 9px 14px; border-radius: 6px;
+      font-size: 13px; font-weight: 700;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .nav-facebook:hover { background: #145dbf; }
+
     .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
     .mobile-menu { display: none; flex-direction: column; gap: 0; background: #0A0A0A; border-top: 1px solid rgba(255,255,255,0.08); }
-    .mobile-menu a { padding: 14px 2rem; color: rgba(255,255,255,0.75); text-decoration: none; font-weight: 600; font-size: 14px; border-bottom: 0.5px solid rgba(255,255,255,0.06); }
+    .mobile-menu a { padding: 14px 2rem; color: rgba(255,255,255,0.75); text-decoration: none; font-weight: 600; font-size: 14px; border-bottom: 0.5px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 8px; }
     .mobile-menu.open { display: flex; }
  
     /* SECTION */
@@ -88,18 +102,7 @@
  
     /* PHOTO BLOC */
     .photo-bloc {
-  width: 100%; 
-  max-width: 450px;       /* ◄ Bloque la largeur sur PC pour ne pas que ce soit géant */
-  margin: 1.5rem auto;    /* ◄ Centre la photo proprement au milieu de l'écran */
-  border-radius: 12px; 
-  overflow: hidden;
-  background: var(--gray2);
-  border: 1px solid rgba(255,255,255,0.06);
-}
-
- /* PHOTO BLOC */
-    .photo-bloc {
-      width: 100%;
+      width: 100%; 
       max-width: 400px;        /* ◄ Bloque la largeur sur PC et sur Tel à la même taille maximum */
       margin: 1.5rem auto;     /* ◄ Centre la photo parfaitement sur PC et sur Tel */
       border-radius: 12px; 
@@ -193,7 +196,7 @@
  
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .nav-links, .nav-phone { display: none; }
+      .nav-links, .nav-buttons { display: none; }
       .hamburger { display: flex; }
     }
     
@@ -209,7 +212,6 @@
   </style>
   <div class="bande-animation">
     <span class="mot-ruban">Pizza artisanale</span>
-    
     <span class="mot-ruban">06.32.55.79.68</span>
     <span class="mot-ruban">Sur place / Emporter</span>
     <span class="mot-ruban">Laplume 47310</span>
@@ -218,7 +220,6 @@
     <span class="mot-ruban">33 cm Minimum</span>
     <span class="mot-ruban">Ouvert 7j/7</span>
     <span class="mot-ruban">Pizza artisanale</span>
-    
     <span class="mot-ruban">06.32.55.79.68</span>
     <span class="mot-ruban">Sur place / Emporter</span>
     <span class="mot-ruban">Laplume 47310</span>
@@ -286,15 +287,30 @@
     <li><a href="#atouts">Nos atouts</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="tel:0632557968" class="nav-phone">📞 06 32 55 79 68</a>
+  
+  <!-- Zone des boutons à droite (Facebook + Téléphone) -->
+  <div class="nav-buttons">
+    <a href="https://www.facebook.com/bobbysnack" target="_blank" class="nav-facebook">
+      <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a href="tel:0632557968" class="nav-phone">📞 06 32 55 79 68</a>
+  </div>
+
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
+
 <div class="mobile-menu" id="mobileMenu">
   <a href="#menu" onclick="toggleMenu()">🍕 Menu</a>
   <a href="#atouts" onclick="toggleMenu()">⭐ Nos atouts</a>
   <a href="#contact" onclick="toggleMenu()">📍 Contact</a>
+  <!-- Facebook dans le menu mobile -->
+  <a href="https://www.facebook.com/bobbysnack" target="_blank" onclick="toggleMenu()" style="color:#1877F2;">
+    <svg width="16" height="16" fill="#1877F2" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    Facebook
+  </a>
   <a href="tel:0632557968" onclick="toggleMenu()" style="color:var(--red);">📞 06 32 55 79 68</a>
 </div>
  
@@ -338,7 +354,6 @@
   </div>
  
   <div id="tacos" class="cat-section">
- 
     <div class="photo-bloc">
       <img src="v.png" alt="Tacos Bobby Snack" style="height: 120px;" onerror="this.style.display='none'" />
     </div>
@@ -366,20 +381,20 @@
     <div class="formule-grid">
  
       <div class="formule-item">
-  <img class="formule-photo" src="enfants.png" alt="Menu Enfants" style="height: 220px;" onerror="this.style.display='none'" />
-  <div class="formule-body">
-    <div>
-      <div class="item-name">Menu Enfants</div>
-      <div class="item-desc">Barquette frites + 4 nuggets ou tenders + boisson</div>
-    </div>
-    <div class="item-price">8€</div>
-  </div>
-</div>
+        <img class="formule-photo" src="enfants.png" alt="Menu Enfants" style="height: 220px;" onerror="this.style.display='none'" />
+        <div class="formule-body">
+          <div>
+            <div class="item-name">Menu Enfants</div>
+            <div class="item-desc">Barquette frites + 4 nuggets ou tenders + boisson</div>
+          </div>
+          <div class="item-price">8€</div>
+        </div>
+      </div>
  
       <div class="formule-item">
         <img class="formule-photo" src="2.png" alt="Tenders Croustillants" style="height: 200px;" onerror="this.style.display='none'" />
         <div class="formule-body">
-          <div><div class="item-name">Tenders Croustillants</div><div class="item-desc">Filets de poulet tendres et panés<br><span style="color:#fff;font-weight:700;">5 pcs : 6€  |  10 pcs : 11€</span></div></div>
+          <div><div class="item-name">Tenders Croustillants</div><div class="item-desc">Filets de poulet tendres et panés<br><span style="color:#fff;font-weight:700;">5 pcs : 6€  |  10 pcs : 11€</span></div></div>
         </div>
       </div>
  
@@ -411,7 +426,6 @@
   </div>
  
   <div id="desserts" class="cat-section">
- 
     <div class="photo-bloc">
       <img src="t.png" alt="Desserts Bobby Snack" style="height: 200px;" onerror="this.style.display='none'" />
     </div>
@@ -423,7 +437,6 @@
       <div class="menu-item"><div><div class="item-name">Paninis Nutella</div><div class="item-desc">Pâte chaude au Nutella fondant</div></div><div class="item-price">4€</div></div>
     </div>
   </div>
- 
 </section>
  
 <section id="atouts">
@@ -472,6 +485,15 @@
 <footer>
   <strong>Bobby Snack Pizzeria</strong> — 17 Impasse de la Patte d'Oie, 47310 Laplume<br>
   <a href="tel:0632557968" style="color:rgba(255,255,255,0.4);text-decoration:none;">06 32 55 79 68</a><br>
+  
+  <!-- Bouton Facebook en bas de page -->
+  <div style="margin: 12px 0;">
+    <a href="https://www.facebook.com/bobbysnack" target="_blank" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; background: #1877F2; color: #fff; padding: 6px 14px; border-radius: 4px; font-weight: bold; font-size: 12px;">
+      <svg width="12" height="12" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Suivez-nous sur Facebook
+    </a>
+  </div>
+
   <span style="margin-top:6px;display:block;">© 2026 Bobby Snack Pizzeria — Tous droits réservés</span>
   <br>
   <a href="javascript:void(0)" onclick="toggleMentions()" style="color:rgba(255,255,255,0.3);font-size:11px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);">Afficher les Mentions Légales</a>
