@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bobby Snack Pizzeria — Laplume</title>
-  <meta name="description" content="Bobby Snack Pizzeria à Laplume. Pizza façonnée à la main, tenders. ouverture  19h à 23h. fermeture Mercredi . precommmande des 17h par tel 06 32 55 79 68" />
+  <meta name="description" content="Bobby Snack Pizzeria à Laplume. Pizza façonnée à la main, tenders. ouverture  19h à 22h. fermeture Mercredi . precommmande des 17h par tel 06 32 55 79 68" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -59,12 +59,6 @@
     .mobile-menu { display: none; flex-direction: column; gap: 0; background: #0A0A0A; border-top: 1px solid rgba(255,255,255,0.08); }
     .mobile-menu a { padding: 14px 2rem; color: rgba(255,255,255,0.75); text-decoration: none; font-weight: 600; font-size: 14px; border-bottom: 0.5px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 8px; }
     .mobile-menu.open { display: flex; }
-    .prix-final {
-  color: white;
-  font-weight: bold;
-  font-size: 22px;
-}
-
  
     /* SECTION */
     .section { padding: 2.5rem 1.5rem; }
@@ -224,7 +218,7 @@
     <span class="mot-ruban">Four à 400°</span>
     <span class="mot-ruban">Commandes par tél 17h</span>
     <span class="mot-ruban">33 cm Minimum</span>
-    <span class="mot-ruban">ouvert 6j/7. 19h/23h. précommande 17 par tel  fermé le Mercredi  </span>
+    <span class="mot-ruban">ouvert 6j/7. 19h/22h. précommande 17 par tel  fermé le Mercredi  </span>
     <span class="mot-ruban">Pizza artisanale</span>
     <span class="mot-ruban">06.32.55.79.68</span>
     <span class="mot-ruban">Sur place / Emporter</span>
@@ -268,8 +262,9 @@
       <p style="color:rgba(255,255,255,0.6); font-size:0.8em; padding:7px; margin:0; font-style:italic;">La Romaine</p>
     </div>
     <div style="flex:0 0 250px; scroll-snap-align:center; border:1px solid rgba(255,255,255,0.08); border-radius:12px; background:#111; overflow:hidden;">
-      <video width="100%" height="180px" style="object-fit:cover;" autoplay loop muted playsinline><source src="La Chèvre Miel.mp4" type="video/mp4"></video>
-      <p style="color:rgba(255,255,255,0.6); font-size:0.8em; padding:7px; margin:0; font-style:italic;">La Chèvre Miel</p>
+      <img src="panini-jambon.png" style="width:100%; height:180px; object-fit:cover;">
+
+      <p style="color:rgba(255,255,255,0.6); font-size:0.8em; padding:7px; margin:0; font-style:italic;">Paninis </p>
     </div>
     <div style="flex:0 0 250px; scroll-snap-align:center; border:1px solid rgba(255,255,255,0.08); border-radius:12px; background:#111; overflow:hidden;">
       <img src="boissons.jpg" style="width:100%; height:180px; object-fit:cover;">
@@ -323,8 +318,12 @@
 <section class="section" id="menu">
   <div class="tabs">
     <button class="tab active" onclick="showCat('pizzas', this)">🍕 Pizzas</button>
-    
+   
+
     <button class="tab" onclick="showCat('formules', this)">🍟 Formules & Snack</button>
+
+    <button class="tab" onclick="showCat('paninis', this)">🌯 Paninis</button>
+
     <button class="tab" onclick="showCat('desserts', this)">🍮 Desserts</button>
   </div>
 
@@ -350,15 +349,7 @@
     <div class="menu-grid">
       <div class="menu-item"><div><div class="item-name">Margarita</div><div class="item-desc">Tomate, mozzarella Fior di Latte, purée d'olives corse</div></div><div class="item-price">10€</div></div>
       <div class="menu-item"><div><div class="item-name">Reine</div><div class="item-desc">Tomate, mozzarella Fior di Latte, champignons bruns émincés<br><em>Après cuisson : jambon, purée d'olives corse, herbes</em></div></div><div class="item-price">13€</div></div>
-      <div class="menu-item">
-  <div>
-    <div class="item-name">La Calzone</div>
-    <div class="item-desc">Tomate, mozzarella Fior di Latte, œuf, jambon supérieur, champignons bruns émincés</div>
-    <div class="item-desc">Supplément œuf +1€ → 14€</div>
-  </div>
-  <div class="item-price">13€</div>
-</div>
-
+      <div class="menu-item"><div><div class="item-name">La Calzone</div><div class="item-desc">Tomate, mozzarella Fior di Latte, œuf, jambon supérieur, champignons bruns émincés</div></div><div class="item-price">13€</div></div>
       <div class="menu-item"><div><div class="item-name">La Chorizo</div><div class="item-desc">Tomate, mozzarella Fior di Latte, chorizo<br><em>Après cuisson : sésame, origan, purée d'olives corse</em></div></div><div class="item-price">15€</div></div>
       <div class="menu-item"><div><div class="item-name">La 4 Fromages</div><div class="item-desc">Base crème ou tomate, mozzarella Fior di Latte, chèvre, reblochon, roquefort<br><em>Après cuisson : comté, purée d'olives corse</em></div></div><div class="item-price">14€</div></div>
       <div class="menu-item"><div><div class="item-name">La Chèvre Miel</div><div class="item-desc">Base crème ou tomate, mozzarella Fior di Latte, fromage de chèvre<br><em>Après cuisson : miel, noix concassées, purée d'olives noires</em></div></div><div class="item-price">14€</div></div>
@@ -429,8 +420,62 @@
  
     </div>
   </div>
- 
-  <div id="desserts" class="cat-section">
+ <div id="paninis" class="cat-section">
+
+  <div class="cat-title">🌯 Paninis</div>
+<div class="photo-bloc">
+  <img src="panini-jambon.png"
+       alt="Paninis Bobby Snack"
+       style="height:180px; object-fit:contain; background:black;"
+       onerror="this.style.display='none'" />
+</div>
+  <div class="menu-grid">
+
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Panini Jambon</div>
+        <div class="item-desc">Jambon,mozzarella fior di latte  </div>
+      </div>
+      <div class="item-price">7€</div>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Panini Chèvre Miel</div>
+        <div class="item-desc">Chèvre, miel,mozzarella fior di latte,noix  </div>
+      </div>
+      <div class="item-price">7€</div>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Panini 3 Fromages</div>
+        <div class="item-desc">Mozzarella, chèvre, cheddar</div>
+      </div>
+      <div class="item-price">7€</div>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Panini Chorizo</div>
+        <div class="item-desc">Chorizo,mozzarella fior di latte </div>
+      </div>
+      <div class="item-price">7€</div>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <div class="item-name">Panini Serrano</div>
+        <div class="item-desc">Jambon Serrano,mozzarella fior di latte  </div>
+      </div>
+      <div class="item-price">7€</div>
+    </div>
+
+  </div>
+
+</div>
+<div id="desserts" class="cat-section">
+
     <div class="photo-bloc">
       <img src="t.png" alt="Desserts Bobby Snack" style="height: 200px;" onerror="this.style.display='none'" />
     </div>
@@ -463,7 +508,7 @@
       <div class="atout">
         <div class="atout-icon">🕐</div>
         <div class="atout-title">6j/7</div>
-        <div class="atout-text">Lun–mardi-jeudi-vendredi-samedi-dimanche 19h/23h fermé Mercredi</div>
+        <div class="atout-text">Lun–mardi-jeudi-vendredi-samedi-dimanche 19h/22h fermé Mercredi</div>
       </div>
       <div class="atout">
         <div class="atout-icon">📦</div>
@@ -481,7 +526,7 @@
     <div class="contact-address">
       17 Impasse de la Patte d'Oie<br>47310 Laplume
     </div>
-    <div class="hours-box">🕐 Ouvert 6j/7 — Lundi mardi jeudi vendredi samedi dimanche 19h/23h fermé le Mercredi </div>
+    <div class="hours-box">🕐 Ouvert 6j/7 — Lundi mardi jeudi vendredi samedi dimanche 19h/22h fermé le Mercredi </div>
     <br>
     <a href="https://maps.google.com/?q=17+Impasse+de+la+Patte+d+Oie+47310+Laplume" target="_blank" class="map-btn">📍 Ouvrir dans Google Maps</a>
   </div>
